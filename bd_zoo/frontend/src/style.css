@@ -1,0 +1,157 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__nav {
+    display: flex;
+    flex: 1;
+}
+
+.header__link {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    margin-right: 11%;
+}
+.header__link:first-of-type{
+    margin-left: 11%;
+}
+
+
+
+.header__link:hover,
+.header__link_active {
+    background-color: #fff;
+    color: #333;
+}
+
+.main {
+    display: flex;
+}
+
+.sidebar {
+    background-color: #eee;
+    width: 200px;
+    padding: 10px;
+    border-radius: 10px;
+    margin-right: 20px;
+    height: 80vh;
+}
+
+.sidebar__header {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.sidebar__menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar__menu-item {
+    color: #333;
+    text-decoration: none;
+    padding: 5px;
+}
+
+.sidebar__menu-item:hover {
+    background-color: #ddd;
+}
+
+.sidebar__submit-button {
+    margin-top: 10px;
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.content {
+    flex: 1;
+    flex-basis: 70%;
+    order: 2;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #fff;
+    border: 2px solid #333;
+    height: 80vh;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(2,1fr);
+    gap: 10px;
+}
+
+.section {
+    border-radius: 10px;
+    background-color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    box-sizing: border-box;
+}
+
+.content__header {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.content__header-text {
+    color: #333;
+}
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer__nav {
+    display: flex;
+}
+
+.footer__link {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+}
+
+.footer__link:hover {
+    background-color: #fff;
+    color: #333;
+}
+
+@media screen and (max-width: 768px) {
+    .main {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
