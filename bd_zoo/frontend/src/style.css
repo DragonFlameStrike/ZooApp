@@ -4,8 +4,13 @@
     padding: 0;
 }
 
-.container {
-    max-width: 1200px;
+.main_div {
+    margin-top: 80px;
+    margin-right: 0px;
+}
+
+.main_container {
+    max-width: 1500px;
     margin: 0 auto;
 }
 
@@ -73,6 +78,12 @@
 
 .sidebar__menu-item:hover {
     background-color: #ddd;
+}
+
+.sidebar__footer{
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 11vh;
 }
 
 .sidebar__submit-button {
