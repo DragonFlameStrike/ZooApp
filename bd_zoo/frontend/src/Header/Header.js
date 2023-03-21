@@ -4,7 +4,7 @@ const Header = props => {
   return(
       <header className="header">
           <Navbar color="dark" dark full="false" expand="md" container="md" fixed="top">
-              <NavbarBrand href="/Zoo">Zoo</NavbarBrand>
+              <NavbarBrand href="/Zoo/">Zoo</NavbarBrand>
               <Nav >
                   <NavItem>
                       <NavLink href="/Zoo/workers/">Workers</NavLink>
