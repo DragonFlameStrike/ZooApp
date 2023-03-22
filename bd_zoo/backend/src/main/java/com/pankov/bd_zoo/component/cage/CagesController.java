@@ -12,10 +12,10 @@ import java.util.List;
 @RequestMapping("/Cages")
 public class CagesController {
     @Autowired
-    private CagesRepository cagesRepository;
+    private CagesService cagesService;
 
     @GetMapping("/")
     public List<Cages> getAll() {
-        return cagesRepository.findAll();
+        return cagesService.getAllCages();
     }
 }
