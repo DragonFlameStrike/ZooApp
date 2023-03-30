@@ -1,39 +1,16 @@
-import { Routes ,Route } from 'react-router-dom';
 
+import React from 'react';
+import { Routes ,Route } from 'react-router-dom';
 import WorkerSidebar from './WorkerSidebar';
 import AnimalSidebar from './AnimalSidebar';
 
 
-interface RouteProps {
-    path: string;
-    exact?: boolean;
-    component: React.ComponentType<any>;
-}
-
-const routes: RouteProps[] = [
-    {
-        path: '/Zoo/workers/',
-        component: <WorkerSidebar/>
-    },
-    {
-        path: '/Zoo/animals/',
-        component: <AnimalSidebar/>
-    },
-    {
-        path: '/',
-    }
-];
-
 const Sidebar = (props) => {
     return (
         <Routes>
-            {routes.map((route, index) => (
-                <Route
-                    key={index}
-                    path={route.path}
-                    element={route.component}
-                />
-            ))}
+            <Route path="/Zoo/workers/" element={<WorkerSidebar toggle={props.toggleWorker} />} />
+            <Route path="/Zoo/animals/" element={<AnimalSidebar toggle={props.toggleAnimal} />} />
+            <Route path="/" />
         </Routes>
 
     );

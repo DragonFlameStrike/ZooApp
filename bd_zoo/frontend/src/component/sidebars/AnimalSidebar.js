@@ -12,7 +12,7 @@ const AnimalSidebar = (props) => {
             </section>
 
             <footer className="sidebar__footer">
-                <button className="sidebar__submit-button">Get new Animal</button>
+                <button className="sidebar__submit-button" onClick={props.toggle}>Get new Animal</button>
             </footer>
         </aside>
     )

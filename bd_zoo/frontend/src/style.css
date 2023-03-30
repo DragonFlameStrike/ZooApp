@@ -96,6 +96,12 @@
     cursor: pointer;
 }
 
+.sidebarModal {
+    max-width: 1600px;
+    width: 1600px;
+    height: 600px;
+}
+
 .content {
     flex: 1;
     flex-basis: 70%;
