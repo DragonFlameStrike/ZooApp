@@ -10,10 +10,12 @@ import java.util.List;
 public class WorkerController {
 
     private final WorkerService workerService;
+    private final WorkerPool workerPool;
 
     @Autowired
-    public WorkerController(WorkerService workerService) {
+    public WorkerController(WorkerService workerService, WorkerPool workerPool) {
         this.workerService = workerService;
+        this.workerPool = workerPool;
     }
 
     @GetMapping("/")
@@ -40,5 +42,17 @@ public class WorkerController {
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
         workerService.deleteById(id);
+    }
+
+    @GetMapping("/pool/{index}")
+    public Worker getWorkerFromPool(@PathVariable int index){
+        return workerPool.getWorkerByIndex(index);
+    }
+
+    @PostMapping("/pool/{index}")
+    public Worker createFromPool(@PathVariable int index){
+        Worker worker = workerPool.getWorkerByIndex(index);
+        workerPool.removeWorker(index);
+        return create(worker);
     }
 }
