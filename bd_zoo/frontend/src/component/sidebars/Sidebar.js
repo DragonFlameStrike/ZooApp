@@ -8,8 +8,8 @@ import AnimalSidebar from './AnimalSidebar';
 const Sidebar = (props) => {
     return (
         <Routes>
-            <Route path="/Zoo/workers/" element={<WorkerSidebar toggle={props.toggleWorker} />} />
-            <Route path="/Zoo/animals/" element={<AnimalSidebar toggle={props.toggleAnimal} />} />
+            <Route path="/workers/*" element={<WorkerSidebar toggle={props.toggleWorker} />} />
+            <Route path="/animals/*" element={<AnimalSidebar toggle={props.toggleAnimal} />} />
             <Route path="/" />
         </Routes>
 

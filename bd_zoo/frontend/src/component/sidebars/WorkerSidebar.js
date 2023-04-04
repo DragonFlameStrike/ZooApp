@@ -20,7 +20,7 @@ const WorkerSidebar  = (props) => {
             <section className="sidebar__content">
                 <div className="sidebar__menu">
                     {workers.map(worker => (
-                        <a href={"http://localhost:3000/Zoo/workers/" + worker.id} className="sidebar__menu-item" key={worker.id}>{worker.name}</a>
+                        <a href={"http://localhost:3000/Editor/workers/" + worker.id} className="sidebar__menu-item" key={worker.id}>{worker.name}</a>
                     ))}
                 </div>
             </section>

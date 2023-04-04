@@ -1,7 +1,7 @@
-
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Header from "./component/headers/Header";
-import { BrowserRouter as Router} from 'react-router-dom';
+import Editor from "./component/editor/Editor";
 import Sidebar from './component/sidebars/Sidebar';
 import ZooCages from './component/zooCages/ZooCages';
 import {useState} from "react";
@@ -27,15 +27,32 @@ function App() {
         <Router>
             <div className="main_container">
                 <nav>
-                    <Header />
+                    <Header/>
                 </nav>
-                <div className="main_div">
-                    <main className="main">
-                        <Sidebar toggleWorker={toggleWorker} toggleAnimal={toggleAnimal}/>
-                        <ZooCages/>
-                    </main>
-                </div>
-                <FlexModal modalWorker={modalWorker} modalAnimal={modalAnimal} toggleWorker={toggleWorker} toggleAnimal={toggleAnimal}/>
+                <Routes>
+                    <Route path='/Zoo/*' element={
+                        <div className="main_div">
+                            <main className="main">
+                                <Sidebar toggleWorker={toggleWorker} toggleAnimal={toggleAnimal}/>
+                                <ZooCages/>
+                            </main>
+                        </div>}>
+                    </Route>
+                    <Route path="/Editor/*" element={
+                        <div className="main_div">
+                            <main className="main">
+                                <Editor/>
+                            </main>
+                        </div>
+                    }>
+                    </Route>
+                </Routes>
+                <FlexModal
+                    modalWorker={modalWorker}
+                    modalAnimal={modalAnimal}
+                    toggleWorker={toggleWorker}
+                    toggleAnimal={toggleAnimal}
+                />
             </div>
         </Router>
     );

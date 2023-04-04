@@ -20,7 +20,7 @@ const AnimalSidebar  = (props) => {
             <section className="sidebar__content">
                 <div className="sidebar__menu">
                     {animals.map(animal => (
-                        <a href={"http://localhost:3000/Zoo/animals/" + animal.id} className="sidebar__menu-item" key={animal.id}>{animal.type + " " + animal.name}</a>
+                        <a href={"http://localhost:3000/Editor/animals/" + animal.id} className="sidebar__menu-item" key={animal.id}>{animal.type + " " + animal.name}</a>
                     ))}
                 </div>
             </section>
