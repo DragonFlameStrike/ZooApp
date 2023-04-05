@@ -4,11 +4,11 @@ import axios from 'axios';
 import { Form, Label, Button, Input } from 'reactstrap';
 import {useParams} from "react-router-dom";
 import img from "../../photo/animals/default.png";
-import leo from "../../photo/animals/Лев.png";
-import tiger from "../../photo/animals/Тигр.png";
-import whiteBear from "../../photo/animals/БелыйМедведь.png";
-import wolf from "../../photo/animals/Волк.png";
-import fox from "../../photo/animals/Лиса.png";
+import wet from "../../photo/workers/Ветеринар.png";
+import cook from "../../photo/workers/Кормильщик.png";
+import cleaner from "../../photo/workers/Уборщик.png";
+import looker from "../../photo/workers/Надзиратель.png";
+import superman from "../../photo/workers/Разнорабочий.png";
 
 
 const WorkerEditor  = (props) => {
@@ -25,7 +25,7 @@ const WorkerEditor  = (props) => {
         axios.get(`http://localhost:8080/workers/${id}`)
             .then(response => {
                 setWorker(response.data);
-                choosePicture(response.data.type);
+                choosePicture(response.data.profession);
             })
             .catch(error => {
                 console.log(error);
@@ -47,11 +47,11 @@ const WorkerEditor  = (props) => {
     }, []);
 
     const choosePicture = (type) => {
-        if (type === "Ветеринар") setImage(leo);
-        if (type === "Кормильщик") setImage(tiger);
-        if (type === "Уборщик") setImage(whiteBear);
-        if (type === "Надзиратель") setImage(wolf);
-        if (type === "Разнорабочий") setImage(fox);
+        if (type === "Ветеринар") setImage(wet);
+        if (type === "Кормильщик") setImage(cook);
+        if (type === "Уборщик") setImage(cleaner);
+        if (type === "Надзиратель") setImage(looker);
+        if (type === "Разнорабочий") setImage(superman);
     }
 
     const handleButtonClick = () => {
