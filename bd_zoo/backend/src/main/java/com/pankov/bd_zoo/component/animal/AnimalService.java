@@ -44,12 +44,19 @@ public class AnimalService implements IAnimalService {
 
     @Override
     public void deleteById(Long id){
-        findById(id);
         repository.deleteById(id);
+    }
+
+    @Override
+    public Integer findCageNumberById(Long id) {
+        Animal animal = findById(id);
+        return animal.getCage().getNumber();
     }
 
     @Override
     public List<Animal> findAll() {
         return repository.findAll();
     }
+
+
 }

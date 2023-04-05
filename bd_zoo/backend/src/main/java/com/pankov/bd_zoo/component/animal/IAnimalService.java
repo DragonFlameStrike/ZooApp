@@ -8,5 +8,6 @@ public interface IAnimalService {
     Animal create(Animal animal);
     Animal update(Animal animal);
     void deleteById(Long id);
+    Integer findCageNumberById(Long id);
 }
 

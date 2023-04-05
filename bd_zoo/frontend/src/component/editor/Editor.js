@@ -9,8 +9,8 @@ import AnimalEditor from './AnimalEditor'
 const Editor = (props) => {
     return (
         <Routes>
-            <Route path="/workers/*" element={<WorkerEditor/>} />
-            <Route path="/animals/*" element={<AnimalEditor/>} />
+            <Route path="/workers/:id" element={<WorkerEditor/>} />
+            <Route path="/animals/:id" element={<AnimalEditor/>} />
             <Route path="/" />
         </Routes>
 

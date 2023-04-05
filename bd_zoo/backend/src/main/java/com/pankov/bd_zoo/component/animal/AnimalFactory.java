@@ -7,7 +7,7 @@ import java.util.Random;
 
 @Component
 public class AnimalFactory {
-    private static final String[] TYPES = {"Лев", "Тигр", "Белый Медведь", "Волк", "Лиса", "Страус", "Папугай", "Бурый Медведь"};
+    private static final String[] TYPES = {"Лев", "Тигр", "Белый Медведь", "Волк", "Лиса", "Страус", "Попугай", "Бурый Медведь"};
     private static final String[] MALE_NAMES = {"Симба", "Лео", "Джек", "Макс", "Антон"};
     private static final String[] FEMALE_NAMES = {"Нэля", "Луна", "Умка", "Белла", "Айва"};
     private static final String[] SEXES = {"м", "ж"};

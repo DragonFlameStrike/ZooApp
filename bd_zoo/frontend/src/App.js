@@ -39,11 +39,7 @@ function App() {
                         </div>}>
                     </Route>
                     <Route path="/Editor/*" element={
-                        <div className="main_div">
-                            <main className="main">
-                                <Editor/>
-                            </main>
-                        </div>
+                        <Editor/>
                     }>
                     </Route>
                 </Routes>

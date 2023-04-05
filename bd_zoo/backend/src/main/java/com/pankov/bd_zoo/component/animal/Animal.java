@@ -1,5 +1,6 @@
 package com.pankov.bd_zoo.component.animal;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.pankov.bd_zoo.component.cage.Cage;
 import jakarta.persistence.*;
 import lombok.*;
@@ -45,6 +46,7 @@ public class Animal {
     @Column(name = "physcondition_normally")
     private Boolean physConditionNormally;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cage_id")
     private Cage cage;
