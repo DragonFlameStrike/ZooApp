@@ -2,10 +2,13 @@ package com.pankov.bd_zoo.component.animal;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.pankov.bd_zoo.component.cage.Cage;
+import com.pankov.bd_zoo.component.worker.Worker;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "animals")
@@ -50,4 +53,8 @@ public class Animal {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cage_id")
     private Cage cage;
+
+    @JsonIgnore
+    @ManyToMany(mappedBy = "animals")
+    private Set<Worker> workers = new HashSet<>();
 }

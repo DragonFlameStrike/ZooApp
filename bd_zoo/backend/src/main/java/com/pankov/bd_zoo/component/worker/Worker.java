@@ -1,9 +1,13 @@
 package com.pankov.bd_zoo.component.worker;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.pankov.bd_zoo.component.animal.Animal;
 import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "workers")
@@ -33,4 +37,12 @@ public class Worker {
 
     @Column(name = "salary", nullable = false)
     private Double salary;
+
+    @JsonIgnore
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "worker_animal",
+            joinColumns = @JoinColumn(name = "worker_id"),
+            inverseJoinColumns = @JoinColumn(name = "animal_id"))
+    private Set<Animal> animals = new HashSet<>();
 }

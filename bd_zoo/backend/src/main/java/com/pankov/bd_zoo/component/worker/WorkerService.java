@@ -1,10 +1,13 @@
 package com.pankov.bd_zoo.component.worker;
 
+import com.pankov.bd_zoo.component.animal.Animal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Set;
 
 @Service
 public class WorkerService implements IWorkerService {
@@ -36,6 +39,7 @@ public class WorkerService implements IWorkerService {
         existingWorker.setHireDate(worker.getHireDate());
         existingWorker.setPriorService(worker.getPriorService());
         existingWorker.setSalary(worker.getSalary());
+        existingWorker.setAnimals(worker.getAnimals());
         return repository.save(existingWorker);
     }
 
@@ -43,6 +47,16 @@ public class WorkerService implements IWorkerService {
     public void deleteById(Long id){
         findById(id);
         repository.deleteById(id);
+    }
+
+    @Override
+    public Set<String> findAnimalsIdByWorkerId(Long id) {
+        Set<Animal> animals = findById(id).getAnimals();
+        Set<String> animalsId = new HashSet<>();
+        for (Animal animal: animals) {
+            animalsId.add(animal.getId().toString());
+        }
+        return animalsId;
     }
 
     @Override

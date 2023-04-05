@@ -44,7 +44,6 @@ public class AnimalController {
 
     @PutMapping("/{id}")
     public Animal update(@PathVariable Long id,  @RequestBody AnimalDto request) {
-        System.out.println(request.getCage());
         Animal animal = request.getAnimal();
         Cage cage = cagesController.getById(Long.valueOf(request.getCage()));
         animal.setId(id);
