@@ -21,7 +21,7 @@ const ZooCages = (props) => {
             {cageNumbers[index] ? (
                 <p>Cage {cageNumbers[index]}</p>
             ) : (
-                <button onClick={() => handleBuyClick(index)}>Buy</button>
+                <button onClick={() => handleBuyClick(index)}>Купить клетку</button>
             )}
         </div>
     ));

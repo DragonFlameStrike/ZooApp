@@ -25,7 +25,7 @@ const AnimalSidebar  = (props) => {
                 </div>
             </section>
             <footer className="sidebar__footer">
-                <button className="sidebar__submit-button" onClick={props.toggle}>Купить новое животное</button>
+                <button className="sidebar__submit-button" onClick={props.toggle}>Купить животное</button>
             </footer>
         </aside>
     );
