@@ -12,11 +12,11 @@ const WorkerSidebar  = (props) => {
             .catch(error => {
                 console.log(error);
             });
-    }, []);
+    }, [props.needReload]);
 
     return (
         <aside className="sidebar">
-            <header className="sidebar__header">Workers:</header>
+            <header className="sidebar__header">Рабочие:</header>
             <section className="sidebar__content">
                 <div className="sidebar__menu">
                     {workers.map(worker => (
@@ -25,7 +25,7 @@ const WorkerSidebar  = (props) => {
                 </div>
             </section>
             <footer className="sidebar__footer">
-                <button className="sidebar__submit-button" onClick={props.toggle}>Hire new worker</button>
+                <button className="sidebar__submit-button" onClick={props.toggle}>Нанять рабочего</button>
             </footer>
         </aside>
     );

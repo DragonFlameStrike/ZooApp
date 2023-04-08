@@ -12,13 +12,13 @@ const WorkerModal = (props) => {
             <ModalBody>
                 <div className="row">
                     <div className="col-4">
-                        <WorkerForm id={0} toggle={props.toggle} />
+                        <WorkerForm id={0} toggle={props.toggle} setNeedReload={props.setNeedReload} needReload={props.needReload} />
                     </div>
                     <div className="col-4">
-                        <WorkerForm id={1} toggle={props.toggle} />
+                        <WorkerForm id={1} toggle={props.toggle} setNeedReload={props.setNeedReload} needReload={props.needReload}/>
                     </div>
                     <div className="col-4">
-                        <WorkerForm id={2} toggle={props.toggle} />
+                        <WorkerForm id={2} toggle={props.toggle} setNeedReload={props.setNeedReload} needReload={props.needReload}/>
                     </div>
                 </div>
             </ModalBody>

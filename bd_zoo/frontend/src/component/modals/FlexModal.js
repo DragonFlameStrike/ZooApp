@@ -8,8 +8,10 @@ import AnimalModal from "./AnimalModal";
 const FlexModal = (props) => {
     return (
         <Routes>
-            <Route path="/Zoo/workers/" element={<WorkerModal toggle={props.toggleWorker} modal={props.modalWorker} />} />
-            <Route path="/Zoo/animals/" element={<AnimalModal toggle={props.toggleAnimal} modal={props.modalAnimal} />} />
+            <Route path="/Zoo/workers/" element=
+                {<WorkerModal toggle={props.toggleWorker} modal={props.modalWorker}  setNeedReload={props.setNeedReload}  needReload={props.needReload}/>} />
+            <Route path="/Zoo/animals/" element=
+                {<AnimalModal toggle={props.toggleAnimal} modal={props.modalAnimal} setNeedReload={props.setNeedReload}  needReload={props.needReload}/>} />
             <Route path="/" />
         </Routes>
 

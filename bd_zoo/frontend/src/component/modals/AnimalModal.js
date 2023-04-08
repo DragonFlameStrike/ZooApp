@@ -9,13 +9,13 @@ const AnimalModal = (props) => {
             <ModalBody>
                 <div className="row">
                     <div className="col-4">
-                        <AnimalForm id={0} toggle={props.toggle} />
+                        <AnimalForm id={0} toggle={props.toggle} setNeedReload={props.setNeedReload} needReload={props.needReload} />
                     </div>
                     <div className="col-4">
-                        <AnimalForm id={1} toggle={props.toggle} />
+                        <AnimalForm id={1} toggle={props.toggle} setNeedReload={props.setNeedReload} needReload={props.needReload}/>
                     </div>
                     <div className="col-4">
-                        <AnimalForm id={2} toggle={props.toggle} />
+                        <AnimalForm id={2} toggle={props.toggle} setNeedReload={props.setNeedReload} needReload={props.needReload}/>
                     </div>
                 </div>
             </ModalBody>

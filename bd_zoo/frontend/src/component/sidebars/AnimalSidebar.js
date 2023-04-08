@@ -12,7 +12,7 @@ const AnimalSidebar  = (props) => {
             .catch(error => {
                 console.log(error);
             });
-    }, []);
+    }, [props.needReload]);
 
     return (
         <aside className="sidebar">

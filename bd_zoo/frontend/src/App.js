@@ -13,6 +13,7 @@ function App() {
 
     const [modalWorker, setModalWorker] = useState(false);
     const [modalAnimal, setModalAnimal] = useState(false);
+    const [needReload, setNeedReload] = useState(false);
 
     const toggleWorker = () => {
         setModalWorker(modalWorker => !modalWorker);
@@ -33,7 +34,7 @@ function App() {
                     <Route path='/Zoo/*' element={
                         <div className="main_div">
                             <main className="main">
-                                <Sidebar toggleWorker={toggleWorker} toggleAnimal={toggleAnimal}/>
+                                <Sidebar toggleWorker={toggleWorker} toggleAnimal={toggleAnimal} needReload={needReload}/>
                                 <ZooCages/>
                             </main>
                         </div>}>
@@ -48,6 +49,8 @@ function App() {
                     modalAnimal={modalAnimal}
                     toggleWorker={toggleWorker}
                     toggleAnimal={toggleAnimal}
+                    setNeedReload = {setNeedReload}
+                    needReload={needReload}
                 />
             </div>
         </Router>

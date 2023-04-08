@@ -25,6 +25,7 @@ const WorkerForm = (props) => {
             .catch(error => {
                 console.log(error);
             });
+        props.setNeedReload(!props.needReload)
     };
 
     return (
