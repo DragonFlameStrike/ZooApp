@@ -74,4 +74,9 @@ public class WorkerController {
         workerPool.removeWorker(index);
         return create(worker);
     }
+
+    @GetMapping("/cage/{id}")
+    public Set<Worker> getAllWorkersByCageId(@PathVariable Long id) {
+        return workerService.getAllWorkersByCageId(id);
+    }
 }

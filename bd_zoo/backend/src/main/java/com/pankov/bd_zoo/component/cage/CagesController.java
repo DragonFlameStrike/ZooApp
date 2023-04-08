@@ -1,6 +1,7 @@
 package com.pankov.bd_zoo.component.cage;
 
 
+import com.pankov.bd_zoo.component.animal.Animal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,6 +22,7 @@ public class CagesController {
     public List<Cage> getAll() {
         return cagesService.findAll();
     }
+
 
     @GetMapping("/{id}")
     public Cage getById(@PathVariable Long id) {

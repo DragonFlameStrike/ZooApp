@@ -33,7 +33,7 @@ public class AnimalController {
     }
 
     @GetMapping("/{id}/cage")
-    public Integer getCageNumber(@PathVariable Long id) {
+    public Integer getCageNumberByAnimalId(@PathVariable Long id) {
         return animalService.findCageNumberById(id);
     }
 
@@ -66,5 +66,10 @@ public class AnimalController {
         Animal animal = animalPool.getAnimalByIndex(index);
         animalPool.removeAnimal(index);
         return create(animal);
+    }
+
+    @GetMapping("/cage/{id}")
+    public List<Animal> getAllAnimalInCage(@PathVariable Long id) {
+        return animalService.findAllByCageId(id);
     }
 }

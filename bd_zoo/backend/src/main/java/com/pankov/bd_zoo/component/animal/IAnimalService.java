@@ -9,5 +9,7 @@ public interface IAnimalService {
     Animal update(Animal animal);
     void deleteById(Long id);
     Integer findCageNumberById(Long id);
+
+    List<Animal> findAllByCageId(Long id);
 }
 

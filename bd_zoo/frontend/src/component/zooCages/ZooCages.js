@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import Cage from "./Cage";
 
 const ZooCages = (props) => {
     const [cages, setCages] = useState([]);
@@ -19,7 +20,7 @@ const ZooCages = (props) => {
     const sections = Array.from({ length: 6 }).map((_, index) => (
         <div className="section" key={index}>
             {cageNumbers[index] ? (
-                <p>Cage {cageNumbers[index]}</p>
+                <Cage index={cageNumbers[index]}/>
             ) : (
                 <button onClick={() => handleBuyClick(index)}>Купить клетку</button>
             )}

@@ -60,6 +60,11 @@ public class WorkerService implements IWorkerService {
     }
 
     @Override
+    public Set<Worker> getAllWorkersByCageId(Long id) {
+        return repository.findAllWorkersByCageId(id);
+    }
+
+    @Override
     public List<Worker> findAll() {
         return repository.findAll();
     }

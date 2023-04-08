@@ -54,6 +54,11 @@ public class AnimalService implements IAnimalService {
     }
 
     @Override
+    public List<Animal> findAllByCageId(Long id) {
+        return repository.findAllByCageId(id);
+    }
+
+    @Override
     public List<Animal> findAll() {
         return repository.findAll();
     }

@@ -12,4 +12,6 @@ public interface IWorkerService {
     Worker update(Worker worker);
     void deleteById(Long id);
     Set<String> findAnimalsIdByWorkerId(Long id);
+
+    Set<Worker> getAllWorkersByCageId(Long id);
 }
