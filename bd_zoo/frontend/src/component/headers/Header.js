@@ -7,16 +7,22 @@ const Header = props => {
               <NavbarBrand href="/Zoo/">Zoo</NavbarBrand>
               <Nav >
                   <NavItem>
-                      <NavLink href="/Zoo/workers/">Workers</NavLink>
+                      <NavLink href="/Zoo/workers/">Рабочие</NavLink>
                   </NavItem>
                   <NavItem>
-                      <NavLink href="/Zoo/animals/">Animals</NavLink>
+                      <NavLink href="/Zoo/animals/">Животные</NavLink>
                   </NavItem>
                   <NavItem>
-                      <NavLink href="/Zoo/cages/">Cages</NavLink>
+                      <NavLink href="/Zoo/market/">Магазин</NavLink>
                   </NavItem>
                   <NavItem>
-                      <NavLink href="/Zoo/food/">Food</NavLink>
+                      <NavLink href="/Zoo/food/">Хранилище</NavLink>
+                  </NavItem>
+                  <NavItem>
+                      <NavLink href="/Zoo/feed/">Кухня</NavLink>
+                  </NavItem>
+                  <NavItem>
+                      <NavLink href="/Zoo/hospital/">Больница</NavLink>
                   </NavItem>
               </Nav>
           </Navbar>

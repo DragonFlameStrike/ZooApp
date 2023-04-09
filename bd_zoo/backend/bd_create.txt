@@ -1,0 +1,158 @@
+DROP SCHEMA public CASCADE;
+CREATE SCHEMA public;
+
+CREATE TABLE workers (
+"id" serial NOT NULL,
+"name" VARCHAR(255) NOT NULL,
+"sex" VARCHAR(255) NOT NULL,
+"profession" VARCHAR(255) NOT NULL,
+"birthday" DATE NOT NULL,
+"hire_date" DATE NOT NULL,
+"prior_service" FLOAT NOT NULL,
+"salary" FLOAT NOT NULL,
+CONSTRAINT "Workers_pk" PRIMARY KEY ("id")
+) WITH (
+OIDS=FALSE
+);
+
+CREATE TABLE animals (
+"id" serial NOT NULL,
+"type" VARCHAR(255) NOT NULL,
+"name" VARCHAR(255) NOT NULL,
+"sex" VARCHAR(255) NOT NULL,
+"weight" integer NOT NULL,
+"height" integer NOT NULL,
+"birthday" DATE NOT NULL,
+"heat_needed" BOOLEAN,
+"relocation_needed" BOOLEAN,
+"physcondition_normally" BOOLEAN,
+"cage_id" integer,
+CONSTRAINT "Animals_pk" PRIMARY KEY ("id")
+) WITH (
+OIDS=FALSE
+);
+
+CREATE TABLE worker_animal (
+"worker_id" integer NOT NULL,
+"animal_id" integer NOT NULL
+) WITH (
+OIDS=FALSE
+);
+
+CREATE TABLE feed (
+"id" serial NOT NULL,
+"animal_id" integer NOT NULL,
+"food_type" VARCHAR(255) NOT NULL,
+"count_feeding" integer NOT NULL,
+"interval" VARCHAR(255) NOT NULL,
+"season" VARCHAR(255) NOT NULL,
+CONSTRAINT "Feed_pk" PRIMARY KEY ("id")
+) WITH (
+OIDS=FALSE
+);
+
+CREATE TABLE food (
+"id" serial NOT NULL,
+"type" VARCHAR(255) NOT NULL,
+"count" FLOAT NOT NULL,
+CONSTRAINT "Food_pk" PRIMARY KEY ("id")
+) WITH (
+OIDS=FALSE
+);
+
+CREATE TABLE suppliers (
+"id" serial NOT NULL,
+"food_id" integer NOT NULL,
+"name" VARCHAR(255) NOT NULL,
+"count" FLOAT NOT NULL,
+"price" FLOAT NOT NULL,
+CONSTRAINT "Suppliers_pk" PRIMARY KEY ("id")
+) WITH (
+OIDS=FALSE
+);
+
+CREATE TABLE deliveries (
+"id" serial NOT NULL,
+"food_id" integer NOT NULL,
+"deliver_name" VARCHAR(255) NOT NULL,
+"count" FLOAT NOT NULL,
+"price" FLOAT NOT NULL,
+"data" DATE NOT NULL,
+CONSTRAINT "Deliveries_pk" PRIMARY KEY ("id")
+) WITH (
+OIDS=FALSE
+);
+
+CREATE TABLE feed_food (
+"feed_id" integer NOT NULL,
+"food_id" integer NOT NULL,
+"food_count" FLOAT NOT NULL
+) WITH (
+OIDS=FALSE
+);
+
+
+
+CREATE TABLE illness (
+	"id" serial NOT NULL,
+	"animal_id" integer NOT NULL,
+	"name" VARCHAR(255) NOT NULL,
+	"date" DATE NOT NULL,
+	CONSTRAINT "Illness_pk" PRIMARY KEY ("id")
+) WITH (
+  OIDS=FALSE
+);
+
+
+
+CREATE TABLE vaccinations (
+	"id" serial NOT NULL,
+	"animal_id" integer NOT NULL,
+	"name" VARCHAR(255) NOT NULL,
+	"date" DATE NOT NULL,
+	CONSTRAINT "Vaccinations_pk" PRIMARY KEY ("id")
+) WITH (
+  OIDS=FALSE
+);
+
+
+
+CREATE TABLE offspring (
+	"id" serial NOT NULL,
+	"animal_id" integer NOT NULL,
+	"type" VARCHAR(255) NOT NULL,
+	"birthday" DATE NOT NULL,
+	"location" VARCHAR(255) NOT NULL,
+	CONSTRAINT "Offspring_pk" PRIMARY KEY ("id")
+) WITH (
+  OIDS=FALSE
+);
+
+CREATE TABLE cages (
+	"id" serial NOT NULL,
+	"number" integer NOT NULL,
+	CONSTRAINT "Cages_pk" PRIMARY KEY ("id")
+) WITH (
+  OIDS=FALSE
+);
+
+ALTER TABLE "worker_animal" ADD CONSTRAINT "worker_animal_fk0" FOREIGN KEY ("worker_id") REFERENCES "workers"("id");
+ALTER TABLE "worker_animal" ADD CONSTRAINT "worker_animal_fk1" FOREIGN KEY ("animal_id") REFERENCES "animals"("id");
+
+ALTER TABLE "feed_food" ADD CONSTRAINT "feed_food_fk0" FOREIGN KEY ("feed_id") REFERENCES "feed"("id");
+ALTER TABLE "feed_food" ADD CONSTRAINT "feed_food_fk1" FOREIGN KEY ("food_id") REFERENCES "food"("id");
+
+
+ALTER TABLE "suppliers"  ADD CONSTRAINT "suppliers_fk0" FOREIGN KEY ("food_id") REFERENCES "food"("id");
+
+ALTER TABLE "deliveries"  ADD CONSTRAINT "deliveries_fk0" FOREIGN KEY ("food_id") REFERENCES "food"("id");
+
+ALTER TABLE "feed" ADD CONSTRAINT "feed_fk0" FOREIGN KEY ("animal_id") REFERENCES "animals"("id");
+
+ALTER TABLE "illness" ADD CONSTRAINT "illness_fk0" FOREIGN KEY ("animal_id") REFERENCES "animals"("id");
+
+ALTER TABLE "vaccinations" ADD CONSTRAINT "vaccinations_fk0" FOREIGN KEY ("animal_id") REFERENCES "animals"("id");
+
+ALTER TABLE "offspring" ADD CONSTRAINT "offspring_fk0" FOREIGN KEY ("animal_id") REFERENCES "animals"("id");
+
+ALTER TABLE "animals"  ADD CONSTRAINT "animals_fk0" FOREIGN KEY ("cage_id") REFERENCES "cages"("id");
