@@ -30,4 +30,9 @@ public class SupplierService implements ISupplierService {
     public Supplier create(Supplier supplier) {
         return supplierRepository.save(supplier);
     }
+
+    @Override
+    public Supplier findByIndexAndFoodType(String type, int index) {
+        return supplierRepository.findByIndexAndFoodType(type).get(index);
+    }
 }

@@ -1,6 +1,8 @@
 package com.pankov.bd_zoo.component.food;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -40,8 +42,8 @@ public class FoodService implements IFoodService {
     }
 
     @Override
-    public List<Food> findAll() {
-        return repository.findAll();
+    public Page<Food> findAll(PageRequest pageRequest) {
+        return repository.findAll(pageRequest);
     }
 
     @Override
@@ -60,6 +62,11 @@ public class FoodService implements IFoodService {
         } else {
             throw new IllegalArgumentException("Not enough food in stock");
         }
+    }
+
+    @Override
+    public Food findByType(String type) {
+        return repository.findByType(type);
     }
 }
 

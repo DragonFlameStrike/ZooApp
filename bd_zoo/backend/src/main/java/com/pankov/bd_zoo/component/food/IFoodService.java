@@ -1,9 +1,12 @@
 package com.pankov.bd_zoo.component.food;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+
 import java.util.List;
 
 public interface IFoodService {
-    List<Food> findAll();
+    Page<Food> findAll(PageRequest pageRequest);
     Food findById(Long id);
     Food create(Food food);
     Food update(Food food);
@@ -14,4 +17,6 @@ public interface IFoodService {
 
     // метод для отнимания количества еды по id
     void subtractFoodCount(Long id, int count);
+
+    Food findByType(String type);
 }

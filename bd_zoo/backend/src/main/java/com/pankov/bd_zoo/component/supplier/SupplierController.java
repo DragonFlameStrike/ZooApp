@@ -20,6 +20,11 @@ public class SupplierController {
         return supplierService.findAll();
     }
 
+    @GetMapping("/{type}/{index}")
+    public Supplier getSupplierByIndexAndFoodType(@PathVariable String type,@PathVariable int index) {
+        return supplierService.findByIndexAndFoodType(type,index);
+    }
+
     @GetMapping("/{id}")
     public Supplier getById(@PathVariable Long id) {
         return supplierService.findById(id);

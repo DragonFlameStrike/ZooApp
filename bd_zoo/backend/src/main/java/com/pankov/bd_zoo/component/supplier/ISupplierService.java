@@ -8,4 +8,5 @@ public interface ISupplierService {
     List<Supplier> findAll();
     Supplier findById(Long id);
     Supplier create(Supplier food);
+    Supplier findByIndexAndFoodType(String type, int index);
 }

@@ -1,12 +1,17 @@
 package com.pankov.bd_zoo.component.food;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 @RestController
-@RequestMapping("Zoo/food/")
+@RequestMapping("Zoo/food")
 public class FoodController {
 
     private final IFoodService foodService;
@@ -17,9 +22,11 @@ public class FoodController {
     }
 
     @GetMapping("/")
-    public List<Food> getAll() {
-        return foodService.findAll();
+    public Page<Food> getAll(@RequestParam(defaultValue = "0") int page,
+                             @RequestParam(defaultValue = "10") int size) {
+        return foodService.findAll(PageRequest.of(page, size, Sort.by("id")));
     }
+
 
     @GetMapping("/{id}")
     public Food getById(@PathVariable Long id) {
@@ -42,16 +49,17 @@ public class FoodController {
         foodService.deleteById(id);
     }
 
-    @PostMapping("/{id}/add/{count}")
-    public void addFoodCount(@PathVariable Long id, @PathVariable Integer count) {
-        Food food = foodService.findById(id);
+    @PostMapping("/{type}/add/{count}")
+    public void addFoodCount(@PathVariable String type, @PathVariable Integer count) {
+        String decodedType = URLDecoder.decode(type, StandardCharsets.UTF_8);
+        Food food = foodService.findByType(decodedType);
         food.setCount(food.getCount() + count);
         foodService.update(food);
     }
 
-    @PostMapping("/{id}/remove/{count}")
-    public void removeFoodCount(@PathVariable Long id, @PathVariable Integer count) {
-        Food food = foodService.findById(id);
+    @PostMapping("/{type}/remove/{count}")
+    public void removeFoodCount(@PathVariable String type, @PathVariable Integer count) {
+        Food food = foodService.findByType(type);
         food.setCount(food.getCount() - count);
         foodService.update(food);
     }

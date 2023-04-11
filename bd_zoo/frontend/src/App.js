@@ -6,6 +6,7 @@ import Sidebar from './component/sidebars/Sidebar';
 import ZooCages from './component/zooCages/ZooCages';
 import {useState} from "react";
 import FlexModal from "./component/modals/FlexModal";
+import Storage from "./component/zooStorage/Storage";
 
 
 
@@ -13,7 +14,9 @@ function App() {
 
     const [modalWorker, setModalWorker] = useState(false);
     const [modalAnimal, setModalAnimal] = useState(false);
+    const [modalFood, setModalFood] = useState(false);
     const [needReload, setNeedReload] = useState(false);
+    const [foodType, setFoodType] = useState();
 
     const toggleWorker = () => {
         setModalWorker(modalWorker => !modalWorker);
@@ -22,6 +25,10 @@ function App() {
     const toggleAnimal = () => {
         setModalAnimal(modalAnimal => !modalAnimal);
         console.log("animalModal")
+    };
+    const toggleFood = () => {
+        setModalFood(modalAnimal => !modalAnimal);
+        console.log("foodModal")
     };
 
     return (
@@ -43,12 +50,21 @@ function App() {
                         <Editor/>
                     }>
                     </Route>
+                    <Route path="/Storage/*" element={
+                        <div className="main_div">
+                            <Storage toggleFood={toggleFood} setFoodType ={setFoodType}/>
+                        </div>
+                    }>
+                    </Route>
                 </Routes>
                 <FlexModal
                     modalWorker={modalWorker}
                     modalAnimal={modalAnimal}
+                    modalFood={modalFood}
+                    foodType={foodType}
                     toggleWorker={toggleWorker}
                     toggleAnimal={toggleAnimal}
+                    toggleFood={toggleFood}
                     setNeedReload = {setNeedReload}
                     needReload={needReload}
                 />

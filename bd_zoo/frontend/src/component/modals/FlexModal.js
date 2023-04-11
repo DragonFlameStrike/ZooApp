@@ -3,6 +3,7 @@ import { Routes ,Route } from 'react-router-dom';
 
 import WorkerModal from "./WorkerModal";
 import AnimalModal from "./AnimalModal";
+import FoodModal from "./FoodModal";
 
 
 const FlexModal = (props) => {
@@ -12,6 +13,8 @@ const FlexModal = (props) => {
                 {<WorkerModal toggle={props.toggleWorker} modal={props.modalWorker}  setNeedReload={props.setNeedReload}  needReload={props.needReload}/>} />
             <Route path="/Zoo/animals/" element=
                 {<AnimalModal toggle={props.toggleAnimal} modal={props.modalAnimal} setNeedReload={props.setNeedReload}  needReload={props.needReload}/>} />
+            <Route path="/Storage/" element=
+                {<FoodModal toggle={props.toggleFood} modal={props.modalFood} foodType={props.foodType} setNeedReload={props.setNeedReload}  needReload={props.needReload}/>} />
             <Route path="/" />
         </Routes>
 
