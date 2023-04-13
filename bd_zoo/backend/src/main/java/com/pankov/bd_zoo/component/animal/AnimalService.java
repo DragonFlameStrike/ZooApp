@@ -50,6 +50,9 @@ public class AnimalService implements IAnimalService {
     @Override
     public Integer findCageNumberById(Long id) {
         Animal animal = findById(id);
+        if(animal.getCage() == null){
+            return null;
+        }
         return animal.getCage().getNumber();
     }
 
@@ -59,9 +62,39 @@ public class AnimalService implements IAnimalService {
     }
 
     @Override
+    public void checkForRelocation(List<Animal> animals) {
+        boolean predatorIsExist = false;
+        for (Animal animal: animals) {
+            for (AnimalTypes.PredatorType predatorType : AnimalTypes.PredatorType.values()) {
+                if (AnimalTypes.getName(predatorType).equals(animal.getType())) {
+                    predatorIsExist = true;
+                    break;
+                }
+            }
+            if(predatorIsExist) break;
+        }
+        for (Animal animal : animals) {
+            if (predatorIsExist) {
+                for (AnimalTypes.HerbivoreType herbivoreType : AnimalTypes.HerbivoreType.values()) {
+                    if (AnimalTypes.getName(herbivoreType).equals(animal.getType())) {
+                        animal.setRelocationNeeded(true);
+                        update(animal);
+                    }
+                    else {
+                        animal.setRelocationNeeded(false);
+                        update(animal);
+                    }
+                }
+            }
+            else {
+                animal.setRelocationNeeded(false);
+                update(animal);
+            }
+        }
+    }
+
+    @Override
     public List<Animal> findAll() {
         return repository.findAll();
     }
-
-
 }

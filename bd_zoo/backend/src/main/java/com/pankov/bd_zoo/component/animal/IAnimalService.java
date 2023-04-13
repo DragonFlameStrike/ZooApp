@@ -11,5 +11,6 @@ public interface IAnimalService {
     Integer findCageNumberById(Long id);
 
     List<Animal> findAllByCageId(Long id);
+    void checkForRelocation(List<Animal> cage);
 }
 

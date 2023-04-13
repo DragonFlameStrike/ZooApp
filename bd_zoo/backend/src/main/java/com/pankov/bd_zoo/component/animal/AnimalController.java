@@ -48,7 +48,9 @@ public class AnimalController {
         Cage cage = cagesController.getById(Long.valueOf(request.getCage()));
         animal.setId(id);
         animal.setCage(cage);
-        return animalService.update(animal);
+        Animal out = animalService.update(animal);
+        animalService.checkForRelocation(getAllAnimalInCage(cage.getId()));
+        return out;
     }
 
     @DeleteMapping("/{id}")
