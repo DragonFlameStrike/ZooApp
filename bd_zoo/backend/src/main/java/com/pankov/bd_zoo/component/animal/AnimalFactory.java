@@ -26,6 +26,10 @@ public class AnimalFactory {
         Enum type = TYPES[random.nextInt(TYPES.length)];
         String nameType = AnimalTypes.getName(type);
         animal.setType(nameType);
+
+        boolean heatNeeded = AnimalTypes.getIsHeatNeeded(type);
+        animal.setHeatNeeded(heatNeeded);
+
         String name;
         String sex;
         if (SEXES[random.nextInt(SEXES.length)].equals("м")) {
@@ -42,4 +46,5 @@ public class AnimalFactory {
         animal.setBirthday(LocalDate.of(2015 + random.nextInt(6), 1 + random.nextInt(12), 1 + random.nextInt(28)));
         return animal;
     }
+
 }

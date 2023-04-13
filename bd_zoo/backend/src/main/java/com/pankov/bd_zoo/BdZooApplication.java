@@ -10,7 +10,6 @@ import java.util.stream.IntStream;
 
 @SpringBootApplication
 public class BdZooApplication {
-	//TODO: Добавить бизнес логику необходимости отопления
 	//TODO: Добавить потомство
 	//TODO: Добавить Болезни
 	//TODO: Вакцины

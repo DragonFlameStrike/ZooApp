@@ -76,14 +76,9 @@ public class AnimalService implements IAnimalService {
         for (Animal animal : animals) {
             if (predatorIsExist) {
                 for (AnimalTypes.HerbivoreType herbivoreType : AnimalTypes.HerbivoreType.values()) {
-                    if (AnimalTypes.getName(herbivoreType).equals(animal.getType())) {
-                        animal.setRelocationNeeded(true);
-                        update(animal);
-                    }
-                    else {
-                        animal.setRelocationNeeded(false);
-                        update(animal);
-                    }
+                    animal.setRelocationNeeded(AnimalTypes.getName(herbivoreType).equals(animal.getType()));
+                    update(animal);
+                    break;
                 }
             }
             else {
