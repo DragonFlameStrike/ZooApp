@@ -7,6 +7,7 @@ import ZooCages from './component/zooCages/ZooCages';
 import {useState} from "react";
 import FlexModal from "./component/modals/FlexModal";
 import Storage from "./component/zooStorage/Storage";
+import StorageHistory from "./component/zooStorage/StorageHistory";
 
 
 
@@ -27,7 +28,7 @@ function App() {
         console.log("animalModal")
     };
     const toggleFood = () => {
-        setModalFood(modalAnimal => !modalAnimal);
+        setModalFood(modalFood => !modalFood);
         console.log("foodModal")
     };
 
@@ -38,6 +39,18 @@ function App() {
                     <Header/>
                 </nav>
                 <Routes>
+                    <Route path="/Zoo/storage/*" element={
+                        <div className="main_div">
+                            <Storage toggleFood={toggleFood} setFoodType ={setFoodType}/>
+                        </div>
+                    }>
+                    </Route>
+                    <Route path="/Zoo/history/*" element={
+                        <div className="main_div">
+                            <StorageHistory/>
+                        </div>
+                    }>
+                    </Route>
                     <Route path='/Zoo/*' element={
                         <div className="main_div">
                             <main className="main">
@@ -48,12 +61,6 @@ function App() {
                     </Route>
                     <Route path="/Editor/*" element={
                         <Editor/>
-                    }>
-                    </Route>
-                    <Route path="/Storage/*" element={
-                        <div className="main_div">
-                            <Storage toggleFood={toggleFood} setFoodType ={setFoodType}/>
-                        </div>
                     }>
                     </Route>
                 </Routes>

@@ -117,6 +117,33 @@
     gap: 10px;
 }
 
+.delivery {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.delivery h2 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.delivery p {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.delivery p:last-child {
+    margin-bottom: 0;
+}
+
+
 .food-container {
     display: flex;
     align-items: center;

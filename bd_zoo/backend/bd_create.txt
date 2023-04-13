@@ -74,10 +74,10 @@ OIDS=FALSE
 CREATE TABLE deliveries (
 "id" serial NOT NULL,
 "food_id" integer NOT NULL,
-"deliver_name" VARCHAR(255) NOT NULL,
+"deliver_name" VARCHAR(255),
 "count" FLOAT NOT NULL,
 "price" FLOAT NOT NULL,
-"data" DATE NOT NULL,
+"date" DATE NOT NULL,
 CONSTRAINT "Deliveries_pk" PRIMARY KEY ("id")
 ) WITH (
 OIDS=FALSE

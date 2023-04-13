@@ -11,7 +11,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 @RestController
-@RequestMapping("Zoo/food")
+@RequestMapping("/food")
 public class FoodController {
 
     private final IFoodService foodService;
@@ -52,7 +52,7 @@ public class FoodController {
     @PostMapping("/{type}/add/{count}")
     public void addFoodCount(@PathVariable String type, @PathVariable Integer count) {
         String decodedType = URLDecoder.decode(type, StandardCharsets.UTF_8);
-        Food food = foodService.findByType(decodedType);
+        Food food = getFoodByType(decodedType);
         food.setCount(food.getCount() + count);
         foodService.update(food);
     }
@@ -62,6 +62,10 @@ public class FoodController {
         Food food = foodService.findByType(type);
         food.setCount(food.getCount() - count);
         foodService.update(food);
+    }
+
+    public Food getFoodByType(String type){
+        return foodService.findByType(type);
     }
 }
 

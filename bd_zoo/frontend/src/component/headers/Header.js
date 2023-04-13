@@ -13,7 +13,10 @@ const Header = props => {
                       <NavLink href="/Zoo/animals/">Животные</NavLink>
                   </NavItem>
                   <NavItem>
-                      <NavLink href="/Storage/">Хранилище</NavLink>
+                      <NavLink href="/Zoo/storage/">Хранилище</NavLink>
+                  </NavItem>
+                  <NavItem>
+                      <NavLink href="/Zoo/history/">История покупок</NavLink>
                   </NavItem>
                   <NavItem>
                       <NavLink href="/Zoo/feed/">Кухня</NavLink>

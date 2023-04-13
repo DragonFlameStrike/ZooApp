@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import Food from './Food';
+import axios from "axios";
+import Delivery from "./Delivery";
 
-const Storage = (props) => {
-    const PAGE_SIZE = 5; // установите значение PAGE_SIZE, если оно еще не было объявлено
-    const [foods, setFoods] = useState([]);
+
+const StorageHistory = (props) => {
+    const PAGE_SIZE = 4; // установите значение PAGE_SIZE, если оно еще не было объявлено
+    const [deliveries, setDeliveries] = useState([]);
     const [page, setPage] = useState(0);
     const [totalPages, setTotalPages] = useState(1);
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/food/?page=${page}&size=${PAGE_SIZE}`)
+        axios.get(`http://localhost:8080/deliveries/?page=${page}&size=${PAGE_SIZE}`)
             .then(response => {
-                setFoods(response.data.content);
+                setDeliveries(response.data.content);
                 setTotalPages(response.data.totalPages);
             })
             .catch(error => {
@@ -26,10 +27,10 @@ const Storage = (props) => {
     return (
         <div>
             {
-                foods.map(food => (
-                    <Food key={food.id} food={food} toggle = {props.toggleFood} setFoodType={props.setFoodType} />
-                )
-            )}
+                deliveries.map(delivery => (
+                        <Delivery key={delivery.id} delivery={delivery} />
+                    )
+                )}
 
             <div>
                 {Array.from({length: totalPages}, (_, index) => index).map((pageNumber) => (
@@ -42,4 +43,4 @@ const Storage = (props) => {
     );
 }
 
-export default Storage;
+export default StorageHistory;

@@ -13,7 +13,7 @@ const FlexModal = (props) => {
                 {<WorkerModal toggle={props.toggleWorker} modal={props.modalWorker}  setNeedReload={props.setNeedReload}  needReload={props.needReload}/>} />
             <Route path="/Zoo/animals/" element=
                 {<AnimalModal toggle={props.toggleAnimal} modal={props.modalAnimal} setNeedReload={props.setNeedReload}  needReload={props.needReload}/>} />
-            <Route path="/Storage/" element=
+            <Route path="/Zoo/storage/" element=
                 {<FoodModal toggle={props.toggleFood} modal={props.modalFood} foodType={props.foodType} setNeedReload={props.setNeedReload}  needReload={props.needReload}/>} />
             <Route path="/" />
         </Routes>

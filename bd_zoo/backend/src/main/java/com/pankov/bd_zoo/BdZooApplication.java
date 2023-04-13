@@ -11,6 +11,14 @@ import java.util.stream.IntStream;
 @SpringBootApplication
 public class BdZooApplication {
 
+	//TODO: Добавить историю покупок
+	//TODO: Добавить бизнес логику несовместимости животных в клетках
+	//TODO: Добавить потомство
+	//TODO: Добавить Болезни
+	//TODO: Вакцины
+	//TODO: Добавить реализацию кухни
+	//TODO: Добавить сортировку еды в магазине
+
 	public static void main(String[] args) {
 		SpringApplication.run(BdZooApplication.class, args);
 	}

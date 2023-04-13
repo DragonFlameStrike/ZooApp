@@ -18,9 +18,15 @@ const FoodForm = (props) => {
     }, []);
 
     const handleButtonClick = () => {
-        axios.post(`http://localhost:8080/Zoo/food/${props.foodType}/add/${supplier.count}`, {})
+        axios.post(`http://localhost:8080/food/${props.foodType}/add/${supplier.count}`, {})
             .then(response => {
                 props.toggle();
+            })
+            .catch(error => {
+                console.log(error);
+            });
+        axios.post(`http://localhost:8080/deliveries/`, {count: supplier.count,foodType: supplier.type, price: supplier.price, date: null})
+            .then(response => {
             })
             .catch(error => {
                 console.log(error);
