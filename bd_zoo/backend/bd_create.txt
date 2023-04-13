@@ -27,6 +27,8 @@ CREATE TABLE animals (
 "relocation_needed" BOOLEAN,
 "physcondition_normally" BOOLEAN,
 "cage_id" integer,
+"mother_id" integer,
+"father_id" integer,
 CONSTRAINT "Animals_pk" PRIMARY KEY ("id")
 ) WITH (
 OIDS=FALSE
@@ -115,19 +117,6 @@ CREATE TABLE vaccinations (
   OIDS=FALSE
 );
 
-
-
-CREATE TABLE offspring (
-	"id" serial NOT NULL,
-	"animal_id" integer NOT NULL,
-	"type" VARCHAR(255) NOT NULL,
-	"birthday" DATE NOT NULL,
-	"location" VARCHAR(255) NOT NULL,
-	CONSTRAINT "Offspring_pk" PRIMARY KEY ("id")
-) WITH (
-  OIDS=FALSE
-);
-
 CREATE TABLE cages (
 	"id" serial NOT NULL,
 	"number" integer NOT NULL,
@@ -152,7 +141,5 @@ ALTER TABLE "feed" ADD CONSTRAINT "feed_fk0" FOREIGN KEY ("animal_id") REFERENCE
 ALTER TABLE "illness" ADD CONSTRAINT "illness_fk0" FOREIGN KEY ("animal_id") REFERENCES "animals"("id");
 
 ALTER TABLE "vaccinations" ADD CONSTRAINT "vaccinations_fk0" FOREIGN KEY ("animal_id") REFERENCES "animals"("id");
-
-ALTER TABLE "offspring" ADD CONSTRAINT "offspring_fk0" FOREIGN KEY ("animal_id") REFERENCES "animals"("id");
 
 ALTER TABLE "animals"  ADD CONSTRAINT "animals_fk0" FOREIGN KEY ("cage_id") REFERENCES "cages"("id");

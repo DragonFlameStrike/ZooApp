@@ -12,7 +12,7 @@ import java.util.stream.IntStream;
 public class BdZooApplication {
 	//TODO: Добавить потомство
 	//TODO: Добавить Болезни
-	//TODO: Вакцины
+	//TODO: Добавить Вакцины
 	//TODO: Добавить реализацию кухни
 	//TODO: Добавить сортировку еды в магазине
 

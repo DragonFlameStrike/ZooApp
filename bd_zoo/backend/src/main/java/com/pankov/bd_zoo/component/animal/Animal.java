@@ -49,6 +49,12 @@ public class Animal {
     @Column(name = "physcondition_normally")
     private Boolean physConditionNormally;
 
+    @Column(name = "mother_id")
+    private Long motherId;
+
+    @Column(name = "father_id")
+    private Long fatherId;
+
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cage_id")
