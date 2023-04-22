@@ -1,8 +1,13 @@
 package com.pankov.bd_zoo.component.animal;
 
+import com.pankov.bd_zoo.component.animal.dto.AnimalDto;
+import com.pankov.bd_zoo.component.animal.dto.AnimalWithIllnessDto;
 import com.pankov.bd_zoo.component.cage.Cage;
 import com.pankov.bd_zoo.component.cage.CagesController;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -73,5 +78,12 @@ public class AnimalController {
     @GetMapping("/cage/{id}")
     public List<Animal> getAllAnimalInCage(@PathVariable Long id) {
         return animalService.findAllByCageId(id);
+    }
+
+    @GetMapping("/illness")
+    public Page<AnimalWithIllnessDto> getAllAnimalWithIllness(@RequestParam(defaultValue = "0") int page,
+                                                              @RequestParam(defaultValue = "5") int size){
+        Pageable pageable = PageRequest.of(page, size);
+        return animalService.findAllAnimalWithIllness(pageable);
     }
 }

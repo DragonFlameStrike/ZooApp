@@ -1,5 +1,6 @@
-package com.pankov.bd_zoo.component.animal;
+package com.pankov.bd_zoo.component.animal.dto;
 
+import com.pankov.bd_zoo.component.animal.Animal;
 import lombok.Data;
 
 @Data

@@ -3,15 +3,16 @@ package com.pankov.bd_zoo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.stream.IntStream;
 
 @SpringBootApplication
+@EnableScheduling
 public class BdZooApplication {
 	//TODO: Добавить потомство
-	//TODO: Добавить Болезни
 	//TODO: Добавить Вакцины
 	//TODO: Добавить реализацию кухни
 	//TODO: Добавить сортировку еды в магазине
