@@ -35,14 +35,6 @@ const Hospital = (props) => {
                         />
                     )
                 )}
-
-            <div>
-                {Array.from({length: totalPages}, (_, index) => index).map((pageNumber) => (
-                    <button key={pageNumber} onClick={() => handlePageChange(pageNumber)}>
-                        {pageNumber+1}
-                    </button>
-                ))}
-            </div>
         </div>
     );
 }
