@@ -48,5 +48,29 @@ public class AnimalFactory {
         animal.setBirthday(LocalDate.of(2015 + random.nextInt(6), 1 + random.nextInt(12), 1 + random.nextInt(28)));
         return animal;
     }
+    public Animal createAnimalFromParents(Animal mother, Animal father){
+        Animal offspring = new Animal();
+        offspring.setType(mother.getType());
+        String name;
+        String sex;
+        if (SEXES[random.nextInt(SEXES.length)].equals("м")) {
+            name = MALE_NAMES[random.nextInt(MALE_NAMES.length)];
+            sex = "м";
+        } else {
+            name = FEMALE_NAMES[random.nextInt(FEMALE_NAMES.length)];
+            sex = "ж";
+        }
+        offspring.setName(name);
+        offspring.setSex(sex);
+        offspring.setWeight(random.nextInt(10) + 5);
+        offspring.setHeight(random.nextInt(100) + 50);
+        offspring.setFatherId(father.getId());
+        offspring.setMotherId(mother.getId());
+        offspring.setBirthday(LocalDate.now());
+        offspring.setHeatNeeded(mother.getHeatNeeded());
+        offspring.setCage(mother.getCage());
+        offspring.setRelocationNeeded(mother.getRelocationNeeded());
+        return offspring;
+    }
 
 }

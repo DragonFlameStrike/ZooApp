@@ -13,9 +13,13 @@ import java.util.stream.IntStream;
 @EnableScheduling
 public class BdZooApplication {
 	//TODO: Добавить потомство
-	//TODO: Добавить Вакцины
 	//TODO: Добавить реализацию кухни
 	//TODO: Добавить сортировку еды в магазине
+	//TODO: Фильтрация
+	//TODO: Валидация
+	//TODO: 10 тестов
+	//TODO: Докер
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(BdZooApplication.class, args);

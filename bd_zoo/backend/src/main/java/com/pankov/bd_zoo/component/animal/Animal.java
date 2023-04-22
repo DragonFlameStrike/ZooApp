@@ -56,7 +56,7 @@ public class Animal {
     private Long fatherId;
 
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "cage_id")
     private Cage cage;
 

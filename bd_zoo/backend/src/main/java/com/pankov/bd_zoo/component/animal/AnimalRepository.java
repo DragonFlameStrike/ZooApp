@@ -14,4 +14,7 @@ public interface AnimalRepository extends JpaRepository<Animal, Long> {
 
     @Query("SELECT DISTINCT animal FROM Animal animal LEFT JOIN Illness illness ON illness.animal.id = animal.id")
     List<Animal> findAllWithIllness();
+
+    @Query("SELECT animal FROM Animal animal WHERE animal.motherId = :id")
+    List<Animal> findAllByMotherId(Long id);
 }
