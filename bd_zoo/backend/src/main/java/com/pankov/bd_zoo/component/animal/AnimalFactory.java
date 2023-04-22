@@ -43,6 +43,7 @@ public class AnimalFactory {
         animal.setSex(sex);
         animal.setWeight(random.nextInt(100) + 50);
         animal.setHeight(random.nextInt(200) + 50);
+        animal.setPhysConditionNormally(true);
         animal.setFatherId(null);
         animal.setMotherId(null);
         animal.setBirthday(LocalDate.of(2015 + random.nextInt(6), 1 + random.nextInt(12), 1 + random.nextInt(28)));
@@ -70,6 +71,7 @@ public class AnimalFactory {
         offspring.setHeatNeeded(mother.getHeatNeeded());
         offspring.setCage(mother.getCage());
         offspring.setRelocationNeeded(mother.getRelocationNeeded());
+        offspring.setPhysConditionNormally(true);
         return offspring;
     }
 
