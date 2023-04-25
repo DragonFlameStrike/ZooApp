@@ -22,9 +22,14 @@ public class FoodController {
     }
 
     @GetMapping("/")
-    public Page<Food> getAll(@RequestParam(defaultValue = "0") int page,
+    public Page<Food> getAllInPage(@RequestParam(defaultValue = "0") int page,
                              @RequestParam(defaultValue = "10") int size) {
         return foodService.findAll(PageRequest.of(page, size, Sort.by("id")));
+    }
+
+    @GetMapping("/all")
+    public List<Food> getAll(){
+        return foodService.findAll();
     }
 
 

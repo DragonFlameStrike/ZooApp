@@ -44,9 +44,8 @@ OIDS=FALSE
 CREATE TABLE feed (
 "id" serial NOT NULL,
 "animal_id" integer NOT NULL,
-"food_type" VARCHAR(255) NOT NULL,
-"count_feeding" integer NOT NULL,
-"interval" VARCHAR(255) NOT NULL,
+"feed_type" VARCHAR(255) NOT NULL,
+"feeding_per_week" integer NOT NULL,
 "season" VARCHAR(255) NOT NULL,
 CONSTRAINT "Feed_pk" PRIMARY KEY ("id")
 ) WITH (
@@ -61,6 +60,16 @@ CONSTRAINT "Food_pk" PRIMARY KEY ("id")
 ) WITH (
 OIDS=FALSE
 );
+
+CREATE TABLE feed_food (
+"id" serial NOT NULL,
+"feed_id" integer NOT NULL,
+"food_id" integer NOT NULL,
+CONSTRAINT "FeedFood_pk" PRIMARY KEY ("id")
+) WITH (
+OIDS=FALSE
+);
+
 
 CREATE TABLE suppliers (
 "id" serial NOT NULL,
@@ -84,15 +93,6 @@ CONSTRAINT "Deliveries_pk" PRIMARY KEY ("id")
 ) WITH (
 OIDS=FALSE
 );
-
-CREATE TABLE feed_food (
-"feed_id" integer NOT NULL,
-"food_id" integer NOT NULL,
-"food_count" FLOAT NOT NULL
-) WITH (
-OIDS=FALSE
-);
-
 
 
 CREATE TABLE illness (
@@ -128,10 +128,6 @@ CREATE TABLE cages (
 ALTER TABLE "worker_animal" ADD CONSTRAINT "worker_animal_fk0" FOREIGN KEY ("worker_id") REFERENCES "workers"("id");
 ALTER TABLE "worker_animal" ADD CONSTRAINT "worker_animal_fk1" FOREIGN KEY ("animal_id") REFERENCES "animals"("id");
 
-ALTER TABLE "feed_food" ADD CONSTRAINT "feed_food_fk0" FOREIGN KEY ("feed_id") REFERENCES "feed"("id");
-ALTER TABLE "feed_food" ADD CONSTRAINT "feed_food_fk1" FOREIGN KEY ("food_id") REFERENCES "food"("id");
-
-
 ALTER TABLE "suppliers"  ADD CONSTRAINT "suppliers_fk0" FOREIGN KEY ("food_id") REFERENCES "food"("id");
 
 ALTER TABLE "deliveries"  ADD CONSTRAINT "deliveries_fk0" FOREIGN KEY ("food_id") REFERENCES "food"("id");
@@ -143,3 +139,7 @@ ALTER TABLE "illness" ADD CONSTRAINT "illness_fk0" FOREIGN KEY ("animal_id") REF
 ALTER TABLE "vaccinations" ADD CONSTRAINT "vaccinations_fk0" FOREIGN KEY ("animal_id") REFERENCES "animals"("id");
 
 ALTER TABLE "animals"  ADD CONSTRAINT "animals_fk0" FOREIGN KEY ("cage_id") REFERENCES "cages"("id");
+
+ALTER TABLE feed_food ADD CONSTRAINT "FeedFood_feed_id_FK" FOREIGN KEY ("feed_id") REFERENCES "feed"("id");
+
+ALTER TABLE feed_food ADD CONSTRAINT "FeedFood_food_id_FK" FOREIGN KEY ("food_id") REFERENCES "food"("id");

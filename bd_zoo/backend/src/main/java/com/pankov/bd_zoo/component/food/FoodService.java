@@ -47,6 +47,11 @@ public class FoodService implements IFoodService {
     }
 
     @Override
+    public List<Food> findAll() {
+        return repository.findAll();
+    }
+
+    @Override
     public void addFoodCount(Long id, int count) {
         Food food = findById(id);
         food.setCount(food.getCount() + count);

@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface IFoodService {
     Page<Food> findAll(PageRequest pageRequest);
+    List<Food> findAll();
     Food findById(Long id);
     Food create(Food food);
     Food update(Food food);

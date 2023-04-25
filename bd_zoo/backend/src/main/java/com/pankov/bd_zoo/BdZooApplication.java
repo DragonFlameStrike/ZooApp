@@ -12,8 +12,6 @@ import java.util.stream.IntStream;
 @SpringBootApplication
 @EnableScheduling
 public class BdZooApplication {
-	//TODO: Добавить потомство
-	//TODO: Добавить реализацию кухни
 	//TODO: Добавить сортировку еды в магазине
 	//TODO: Фильтрация
 	//TODO: Валидация

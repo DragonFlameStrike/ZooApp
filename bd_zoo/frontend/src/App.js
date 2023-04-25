@@ -9,6 +9,7 @@ import FlexModal from "./component/modals/FlexModal";
 import Storage from "./component/zooStorage/Storage";
 import StorageHistory from "./component/zooStorage/StorageHistory";
 import Hospital from "./component/zooHospital/Hospital";
+import Kitchen from "./component/zooKichen/Kitchen";
 
 
 
@@ -16,6 +17,7 @@ function App() {
 
     const [modalWorker, setModalWorker] = useState(false);
     const [modalAnimal, setModalAnimal] = useState(false);
+    const [modalFeed, setModalFeed] = useState(false);
     const [modalVaccination, setModalVaccination] = useState(false);
     const [modalFood, setModalFood] = useState(false);
     const [needReload, setNeedReload] = useState(false);
@@ -37,6 +39,10 @@ function App() {
     const toggleVaccination = () => {
         setModalVaccination(modalVaccination => !modalVaccination);
         console.log("VaccinationModal")
+    }
+    const toggleFeed = () => {
+        setModalFeed(modalFeed => !modalFeed);
+        console.log("modalFeed")
     }
 
     return (
@@ -64,6 +70,12 @@ function App() {
                         </div>
                     }>
                     </Route>
+                    <Route path="/Zoo/feed/*" element={
+                        <div className="main_div">
+                            <Kitchen toggle={toggleFeed}/>
+                        </div>
+                    }>
+                    </Route>
                     <Route path='/Zoo/*' element={
                         <div className="main_div">
                             <main className="main">
@@ -80,11 +92,13 @@ function App() {
                 <FlexModal
                     modalWorker={modalWorker}
                     modalAnimal={modalAnimal}
+                    modalFeed={modalFeed}
                     modalFood={modalFood}
                     modalVaccination={modalVaccination}
                     foodType={foodType}
                     animalToVaccination={animalToVaccination}
                     toggleWorker={toggleWorker}
+                    toggleFeed={toggleFeed}
                     toggleAnimal={toggleAnimal}
                     toggleFood={toggleFood}
                     toggleVaccination={toggleVaccination}

@@ -5,6 +5,7 @@ import WorkerModal from "./WorkerModal";
 import AnimalModal from "./AnimalModal";
 import FoodModal from "./FoodModal";
 import VaccinationForm from "./forms/VaccinationForm";
+import FeedForm from "./forms/FeedForm";
 
 
 const FlexModal = (props) => {
@@ -18,6 +19,9 @@ const FlexModal = (props) => {
                 {<FoodModal toggle={props.toggleFood} modal={props.modalFood} foodType={props.foodType} setNeedReload={props.setNeedReload}  needReload={props.needReload}/>} />
             <Route path="/Zoo/hospital/" element=
                 {<VaccinationForm toggle={props.toggleVaccination} modal={props.modalVaccination} animalToVaccination={props.animalToVaccination} setNeedReload={props.setNeedReload}  needReload={props.needReload}/>} />
+            <Route path="/Zoo/feed/" element=
+                {<FeedForm toggle={props.toggleFeed} modal={props.modalFeed} setNeedReload={props.setNeedReload}  needReload={props.needReload}/>} />
+
             <Route path="/" />
         </Routes>
 
